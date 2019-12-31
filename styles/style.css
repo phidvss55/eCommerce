@@ -48,7 +48,7 @@ body {
 #menu a {
     color: #ffffff;
     text-decoration: none;
-    font-size: 18px;
+    font-size: 20px;
     margin: 5px;
     padding: 10px;
 }
@@ -59,6 +59,12 @@ body {
     font-weight: bolder;
 }
 
+#form {
+    float: right;
+    line-height: 50px;
+    padding-right: 5px;
+}
+
 .content_wrapper {
     width: 1000px;
     height: 600px;
@@ -66,14 +72,14 @@ body {
 }
 
 #right_content {
-    width: 750px;
+    width: 800px;
     height: 600px;
     background: #fcc;
     float: right;
 }
 
 #left_sidebar {
-    width: 250px;
+    width: 200px;
     height: 600px;
     background: #000000;
     float: left;
@@ -85,4 +91,41 @@ body {
     background: #999999;
     color: #ffffff;
     clear: both;
+}
+
+.footer h2 {
+    color: #000000;
+    padding-top: 25px;
+    text-align: center;
+}
+/* ---- */
+#sidebar_title {
+    background: #ffffff;
+    color: #000000;
+    padding: 10px;
+    font-size: 22px;
+    font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+}
+
+#cats {
+    text-align: center;
+    padding: 10px;
+}
+
+#cats li {
+    list-style: none;
+    margin: 10px;
+}
+
+#cats a {
+    color: #ffffff;
+    font-size: 20px;
+    text-decoration: none;
+    margin: 5px;
+}
+
+#cats a:hover {
+    color: #f93;
+    text-decoration: underline;
+    font-weight: bolder;
 }
