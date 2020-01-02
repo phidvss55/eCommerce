@@ -129,3 +129,33 @@ body {
     text-decoration: underline;
     font-weight: bolder;
 }
+
+/* right content */
+#headline {
+    background: #000000;
+    color: #ffffff;
+    height: 35px;
+    width: 780px;
+    padding: 10px;
+}
+
+#headline_content {
+    float: right;
+}
+
+#product_box {
+    width: 780px;
+    padding: 10px;
+    margin: 10px 0 10px 30px;
+    text-align: center;
+}
+
+#single_product {
+    float:left; 
+    padding:10px; 
+    margin-left:30px;
+}
+
+#single_product img {
+    border: 2px solid #333333;
+}
