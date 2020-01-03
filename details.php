@@ -57,20 +57,46 @@
                 </ul>
             </div>
             <div id="right_content">
-                <?php cart(); ?>
                 <div id="headline">
                     <div id="headline_content">
                         <b>Welcome Guest!</b>
                         <b style="color: yellow">Shopping Cart </b>
-                        <span>- Total Items: <?php items(); ?> - Total Price: <?php total_price(); ?><a href="cart.php" class="cart"> - Go to cart</a></span>
+                        <span>- Items: - Price: </span>
                     </div>
                 </div>
             <!-- products list -->
             <div class="products_box">
                 <?php 
-                    getPro();
-                    getCatPro();
-                    getBrandPro();
+                    if(isset($_GET['pro_id'])) {
+                        $product_id = $_GET['pro_id'];
+                        $get_products = "select * FROM products where product_id=".$product_id;
+                    
+                        $run_products = mysqli_query($db, $get_products);
+
+                        while($row_products = mysqli_fetch_array($run_products)) {
+                            $pro_id = $row_products['product_id'];
+                            $pro_title = $row_products['product_title'];
+                            $pro_desc = $row_products['product_desc'];
+                            $pro_price = $row_products['product_price'];
+                            $pro_image1 = $row_products['product_img1'];
+                            $pro_image2 = $row_products['product_img2'];
+                            $pro_image3 = $row_products['product_img3'];
+
+                            echo "<div id='single_product'>
+                                    <h3>$pro_title</h3>
+                                    <img src='./admin_area/product_images/$pro_image1' width='180' height='180'/>
+                                    <img src='./admin_area/product_images/$pro_image2' width='180' height='180'/>
+                                    <img src='./admin_area/product_images/$pro_image3' width='180' height='180'/><br>
+
+                                    <p><b>Price: <span style='color:red'>$pro_price</span></b></p>
+                                    <p>$pro_desc</p>
+                                    
+                                    <a href='index.php' style='float:left;'>Go Back</a>
+                                    <a href='index.php?add_cart=$pro_id'><button style='float:right;'>Add To Cart</button></a>
+                                </div>
+                            ";
+                        }
+                    }
                 ?>
             </div>
             </div>

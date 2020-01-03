@@ -163,3 +163,10 @@ body {
     text-align: center;
     text-transform: capitalize;
 }
+
+/* cart */
+#right_content .cart {
+    font-size: 18px;
+    color: yellow;
+    text-decoration: none;
+}
