@@ -63,19 +63,27 @@
                     <div id="headline_content">
                         <b>Welcome Guest!</b>
                         <b style="color: yellow">Shopping Cart </b>
-                        <span>- Total Items: <?php items(); ?> - Total Price: <?php total_price(); ?><a href="cart.php" class="cart"> - Go to cart</a></span>
+                        <span>- Total Items: <?php items(); ?> - Total Price: <?php total_price(); ?><a href="cart.php" class="cart"> - Go to cart</a>
+                        <?php
+                        if(!isset($_SESSION['customer_email'])) {
+                            echo "<a href='checkout.php' style='color: orangered'>Login</a>";
+                        } else {
+                            echo "<a href='logout.php' style='color: red'>Logout</a>";
+                        }
+                        ?>
+                        </span>
                     </div>
                 </div>
-            <!-- products list -->
-            <div class="products_box">
-                <?php 
-                    if(!isset($_SESSION['customer_email'])) {
-                        include('./customer/customer_login.php');
-                    } else {
-                        include('./payment_options.php');
-                    }
-                ?>
-            </div>
+                <!-- products list -->
+                <div class="products_box">
+                    <?php 
+                        if(!isset($_SESSION['customer_email'])) {
+                            include('./customer/customer_login.php');
+                        } else {
+                            include('./payment_options.php');
+                        }
+                    ?>
+                </div>
             </div>
         </div>
         <div class="footer">
