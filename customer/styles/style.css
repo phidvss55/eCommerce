@@ -72,15 +72,15 @@ body {
 }
 
 #right_content {
-    width: 800px;
+    width: 750px;
     background: #fcc;
-    float: right;
+    float: left;
 }
 
 #left_sidebar {
-    width: 200px;
+    width: 250px;
     background: #000000;
-    float: left;
+    float: right;
 }
 
 .footer {
@@ -122,6 +122,10 @@ body {
     margin: 5px;
 }
 
+#cats img {
+    border: 2px solid #ffffff;
+}
+
 #cats a:hover {
     color: #f93;
     text-decoration: underline;
@@ -133,7 +137,7 @@ body {
     background: #000000;
     color: #ffffff;
     height: 35px;
-    width: 780px;
+    width: 750px;
     padding: 10px;
 }
 
@@ -169,6 +173,14 @@ body {
     font-size: 18px;
     color: yellow;
     text-decoration: none;
+}
+
+#right_content .title h2 {
+    background-color: #000;
+    color:#FC9;
+    padding:20px;
+    text-align:center;
+    border-top:2px solid #fff;
 }
 
 .content_wrapper .products_box .table_format {

@@ -1,7 +1,8 @@
 <?php
     session_start();
-    include('./includes/db.php');
-    include('./functions/function.php'); //link to function . php
+
+    include('includes/db.php');
+    include('functions/function.php'); //link to function . php
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,7 +29,7 @@
             <ul id="menu">
                 <li><a href="index.php">Home</a></li>
                 <li><a href="all_products.php">All Products</a></li>
-                <li><a href="my_account.php">My Account</a></li>
+                <li><a href="customer/my_account.php">My Account</a></li>
                 <li><a href="user_regiester.php">Sign Up</a></li>
                 <li><a href="cart.php">Shopping Cart</a></li>
                 <li><a href="contact.php">Contact Us</a></li>
@@ -61,7 +62,13 @@
                 <?php cart(); ?>
                 <div id="headline">
                     <div id="headline_content">
-                        <b>Welcome Guest!</b>
+                        <?php
+                            if(!isset($_SESSION['customer_email'])) {
+                                echo "<b>WelCome Guest!</b>";
+                            } else {
+                                echo "<b>Welcome <span style='font-size: 18px; color: red; text-transform: capitalize'>". $_SESSION['customer_email']."</span></b>";
+                            }
+                        ?>
                         <b style="color: yellow">Shopping Cart </b>
                         <span>- Total Items: <?php items(); ?> - Total Price: <?php total_price(); ?><a href="cart.php" class="cart"> - Go to cart</a>
                         <?php
@@ -78,9 +85,9 @@
                 <div class="products_box">
                     <?php 
                         if(!isset($_SESSION['customer_email'])) {
-                            include('./customer/customer_login.php');
+                            include('customer/customer_login.php');
                         } else {
-                            include('./payment_options.php');
+                            include('payment_options.php');
                         }
                     ?>
                 </div>

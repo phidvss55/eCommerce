@@ -69,7 +69,7 @@
                 <?php 
                     if(isset($_GET['pro_id'])) {
                         $product_id = $_GET['pro_id'];
-                        $get_products = "select * FROM products where product_id=".$product_id;
+                        $get_products = "SELECT * FROM products where product_id=".$product_id;
                     
                         $run_products = mysqli_query($db, $get_products);
 

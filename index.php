@@ -1,4 +1,5 @@
 <?php
+    session_start();
     include('./includes/db.php');
     include('./functions/function.php'); //link to function . php
 ?>
@@ -27,7 +28,7 @@
             <ul id="menu">
                 <li><a href="index.php">Home</a></li>
                 <li><a href="all_products.php">All Products</a></li>
-                <li><a href="my_account.php">My Account</a></li>
+                <li><a href="customer/my_account.php">My Account</a></li>
                 <li><a href="user_regiester.php">Sign Up</a></li>
                 <li><a href="cart.php">Shopping Cart</a></li>
                 <li><a href="contact.php">Contact Us</a></li>
@@ -60,9 +61,24 @@
                 <?php cart(); ?>
                 <div id="headline">
                     <div id="headline_content">
-                        <b>Welcome Guest!</b>
+                        <?php
+                            if(!isset($_SESSION['customer_email'])) {
+                                echo "<b>WelCome Guest!</b>";
+                            } else {
+                                echo "<b>Welcome <span style='font-size: 18px; color: red; text-transform: capitalize'>". $_SESSION['customer_email']."</span></b>";
+                            }
+                        ?>
+                        <!-- <b>Welcome Guest!</b> -->
                         <b style="color: yellow">Shopping Cart </b>
-                        <span>- Total Items: <?php items(); ?> - Total Price: <?php total_price(); ?><a href="cart.php" class="cart"> - Go to cart</a></span>
+                        <span>- Total Items: <?php items(); ?> - Total Price: <?php total_price(); ?><a href="cart.php" class="cart"> - Go to cart</a>
+                        <?php
+                        if(!isset($_SESSION['customer_email'])) {
+                            echo "<a href='checkout.php' style='color: orangered'>Login</a>";
+                        } else {
+                            echo "<a href='logout.php' style='color: red'>Logout</a>";
+                        }
+                        ?>
+                        </span>
                     </div>
                 </div>
             <!-- products list -->
