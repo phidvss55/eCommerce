@@ -48,7 +48,7 @@
         $sub_total = $total * $qty;
     }
     $insert_order = "INSERT INTO customer_orders(customer_id, due_amount, invoice_no, total_products, order_date, order_status)
-    VALUE ('$customer_id', '$sub_total', '$invoice_no', '$count_pro', 'NOW()', '$status')";
+    VALUE ('$customer_id', '$sub_total', '$invoice_no', '$count_pro', NOW(), '$status')";
 
     $run_order = mysqli_query($con, $insert_order);
     

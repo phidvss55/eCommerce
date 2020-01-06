@@ -101,6 +101,7 @@ function getDefault() {
                     $get_orders = "SELECT * FROM customer_orders WHERE customer_id='$customer_id' AND order_status='pending'";
                     $run_orders = mysqli_query($db, $get_orders);
                     $count_orders = mysqli_num_rows($run_orders);
+
                     if($count_orders > 0) {
                         echo "
                         <div style='padding:10px'>
@@ -108,26 +109,24 @@ function getDefault() {
                             <h3>You have $count_orders Pending orderes</h3>
                             <h3>Please see your orders detail by clicking this 
                                 <a href='my_account.php?my_orders'>LINK</a><br>Or you can - 
-                                <a href='pay_offline.php'>Pay Offline Now</a>
+                                <a href='pay_offline.php' target='_blank'>Pay Offline Now</a>
                             </h3>
                         </div>
                         ";
-                    } else {
-                        echo "
-						<div style='padding:10px;'>
-						<h1 style='color:red; text-decoration:underline;'>Important!</h1>
-						<h2>You have no pending orders!</h2>
-						<h3>You can see your orders history by clicking this <a href='my_account.php?my_orders'>LINK</a></h3>
-						
-						</div>
-						";
                     }
                 }
             }    
         }
+    } else {
+        echo "
+        <div style='padding: 20px; background-color: #99f;'>
+            <h1 style='color:red; text-decoration:underline;'>Important!</h1>
+            <h2>You have no pending orders!</h2>
+            <h3>You can see your orders history by clicking this <a href='my_account.php?my_orders'>LINK</a></h3>
+        </div>
+        ";
     }        
 }
-
 
 function getPro() { //get products
     global $db;

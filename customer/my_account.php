@@ -96,7 +96,26 @@
                     <h2>Manage Your Account Here</h2>
                 </div>
             </div>
-            <?php getDefault() ?>
+            <?php 
+                getDefault() ;
+
+                if(isset($_GET['my_orders'])) {
+                    include("my_orders.php");
+                }
+                
+                if(isset($_GET['edit_account'])) {
+                    include("edit_account.php");
+                }
+
+                if(isset($_GET['change_pass'])) {
+                    include("change_pass.php");
+                }
+
+                if(isset($_GET['delete_account'])) {
+                    include("delete_account.php");
+                }
+            
+            ?>
         </div>
         <div class="footer">
             <h2>&copy; 2019 - By www.noname.com</h2>
