@@ -21,7 +21,7 @@
 
 <body style="background-color: #999999;">
     <form action="insert_product.php" method="POST" enctype="multipart/form-data">
-        <table width="700" style="margin: 0 auto; background-color: #006699" border="1">
+        <table width="750" style="margin: 0 auto; background-color: #006699" border="1">
             <tr>
                 <td colspan="2">
                     <h2>Insert New Product</h2>
@@ -140,6 +140,7 @@
 
             if($run_product) {
                 echo "<script>alert('Product Inserted successfully.')</script>";
+                echo "<script>window.open('index.php', '_self');</script>";
             } else {
                 echo "<script>alert('Falled to insert product.')</script>";
             }
