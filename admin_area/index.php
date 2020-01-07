@@ -1,3 +1,9 @@
+<?php
+    session_start();
+    if(!isset($_SESSION['admin_email'])) {
+        echo "<script>window.open('login.php', '_self');</script>";
+    } else {
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,6 +32,7 @@
             <a href="logout.php">Admin Logout</a>
         </div>
         <div class="left">
+        <h2 style="color:red;text-align:center; padding-top:20px;"><?php echo @$_GET['logged_in']; ?></h2>
             <?php
                 include("includes/db.php");
                 if(isset($_GET['insert_product'])) {
@@ -69,3 +76,4 @@
     </div>
 </body>
 </html>
+<?php } ?>
