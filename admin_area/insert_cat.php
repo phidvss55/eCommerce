@@ -26,8 +26,8 @@
             $insert_cat = "INSERT INTO categories(cat_title) VALUES('$cat_title')";
             $run_cat = mysqli_query($con, $insert_cat);
             if($run_cat) {
-                echo "<script>alert('Insert Products Successfully!');</script>";
-                echo "<script>window.open('index.php?view_products', '_self');</script>";
+                echo "<script>alert('Insert Category Successfully!');</script>";
+                echo "<script>window.open('index.php?view_cat', '_self');</script>";
             }
         }
     ?>
